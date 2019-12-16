@@ -1,3 +1,5 @@
+//Satinder Kaur
+
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://Simar:Sunny123gg@cluster0-xbxcz.mongodb.net/test";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:true });
@@ -31,6 +33,7 @@ client.connect(err => {
 	console.log("Inserted 5 rows into Disease table..");
   */
   
+  /*
 	const collection = client.db("SBS_Hospital").collection("Blood_Bank");
 	var insertBlood=[{Blood_Group:"A+",Volume_Available_L:180,Blood_Cost:20},
 					{Blood_Group:"A-",Volume_Available_L:135,Blood_Cost:25},
@@ -45,6 +48,20 @@ client.connect(err => {
 		if(err) throw err;
 		
 	console.log("Inserted 5 rows into Blood_Bank table..");
+  */
+  
+  const collection = client.db("SBS_Hospital").collection("Laboratory_Staff");
+
+	var updateSatinder = {Position:"Clinical Manager"};
+	var newvalueSatinder = { $set: {SalaryPH:25.75 } };
+	
+	collection.updateOne(updateSatinder, newvalueSatinder, function(err, res) {
+    if (err) throw err;
+    console.log("Update complete");
+	
+	
+  
+  
   client.close();
 });
 });
