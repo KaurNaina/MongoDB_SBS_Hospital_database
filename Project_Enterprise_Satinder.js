@@ -49,7 +49,7 @@ client.connect(err => {
 		
 	console.log("Inserted 5 rows into Blood_Bank table..");
   */
-  
+  /*
   const collection = client.db("SBS_Hospital").collection("Laboratory_Staff");
 
 	var updateSatinder = {Position:"Clinical Manager"};
@@ -58,8 +58,21 @@ client.connect(err => {
 	collection.updateOne(updateSatinder, newvalueSatinder, function(err, res) {
     if (err) throw err;
     console.log("Update complete");
+	*/
+	/*
+	const collection = client.db("SBS_Hospital").collection("Blood_Bank");
+	var findSatinder={Blood_Cost:20};
+	collection.find(findSatinder,{projection:{_id:0,Blood_Group:1,Volume_Available_L:1}}).toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+	*/
 	
-	
+	const collection = client.db("SBS_Hospital").collection("Laboratory_Staff");
+	var deleteSatinder = { Position:"Lab Assistant" };
+	collection.deleteMany(deleteSatinder, function(err, result) {
+    if (err) throw err;
+    console.log("Deleted the Lab Assistant...");
+  
   
   
   client.close();
