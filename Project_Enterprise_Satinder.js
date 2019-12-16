@@ -14,8 +14,9 @@ client.connect(err => {
 		if(err) throw err;
 		
 	console.log("Inserted 5 rows into Laboratory_Staff table..");
-  */
   
+	*/
+	/*
   
 	const collection = client.db("SBS_Hospital").collection("Disease");
 	var insertDisease=[{Disease_ID:"15D",Disease_Name:"Eczema",Drug_ID:15001},
@@ -28,7 +29,22 @@ client.connect(err => {
 		if(err) throw err;
 		
 	console.log("Inserted 5 rows into Disease table..");
+  */
   
+	const collection = client.db("SBS_Hospital").collection("Blood_Bank");
+	var insertBlood=[{Blood_Group:"A+",Volume_Available_L:180,Blood_Cost:20},
+					{Blood_Group:"A-",Volume_Available_L:135,Blood_Cost:25},
+					{Blood_Group:"B+",Volume_Available_L:209,Blood_Cost:20},
+					{Blood_Group:"B-",Volume_Available_L:107,Blood_Cost:25},
+					{Blood_Group:"AB+",Volume_Available_L:140,Blood_Cost:20},
+					{Blood_Group:"AB-",Volume_Available_L:109,Blood_Cost:25},
+					{Blood_Group:"O+",Volume_Available_L:200,Blood_Cost:15},
+					{Blood_Group:"O-",Volume_Available_L:98,Blood_Cost:40}];
+						
+	collection.insertMany(insertBlood,function(err,result){
+		if(err) throw err;
+		
+	console.log("Inserted 5 rows into Blood_Bank table..");
   client.close();
 });
 });
